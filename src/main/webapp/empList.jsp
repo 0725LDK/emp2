@@ -18,6 +18,6 @@
 		<%=loginEmp.getLastName()%>(<%=loginEmp.getEmpNo()%>)님 반갑습니다.
 	</div>
 	
-	<a href="<%=request.getContextPath()%>/LogOut.jsp">로그아웃</a>
+	<a href="<%=request.getContextPath()%>/LogOut.jsp">로그아웃!</a>
 </body>
 </html>
