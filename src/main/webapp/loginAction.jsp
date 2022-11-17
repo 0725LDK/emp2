@@ -9,12 +9,12 @@
 	//request 유효성 검증코드
 	request.setCharacterEncoding("utf-8");
 	String msg = null;
-	if(request.getParameter("empNo")==null || request.getParameter("empNo").equals("") 
+	if(request.getParameter("empNo")==null
 		|| request.getParameter("firstName")==null || request.getParameter("fitstName").equals("")
 		|| request.getParameter("lastName")==null || request.getParameter("lastName").equals("") )
 	{
 		msg =URLEncoder.encode("항목들을 입력해주세요", "utf-8");
-		response.sendRedirect(request.getContextPath()+"/loginForm.jsp");
+		response.sendRedirect(request.getContextPath()+"/loginForm.jsp?msg="+msg);
 		return;
 	}
 		
