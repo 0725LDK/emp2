@@ -1,12 +1,25 @@
-<%@page import="javax.naming.spi.DirStateFactory.Result"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "vo.*"%>
 <%@ page import = "java.sql.*"%>
+<%@ page import = "java.net.*"%>
 
 <%
 	//1)controller
 	//session 유효성 검증코드.. 로그인되어있으면 이 페이지에 오면 안됨 필요하면 redirect
 	//request 유효성 검증코드
+	request.setCharacterEncoding("utf-8");
+	String msg = null;
+	if(request.getParameter("empNo")==null || request.getParameter("empNo").equals("") 
+		|| request.getParameter("firstName")==null || request.getParameter("fitstName").equals("")
+		|| request.getParameter("lastName")==null || request.getParameter("lastName").equals("") )
+	{
+		msg =URLEncoder.encode("항목들을 입력해주세요", "utf-8");
+		response.sendRedirect(request.getContextPath()+"/loginForm.jsp");
+		return;
+	}
+		
+	
+	
 	int empNo = Integer.parseInt(request.getParameter("empNo"));
 	String firstName = request.getParameter("firstName");
 	String lastName = request.getParameter("lastName");

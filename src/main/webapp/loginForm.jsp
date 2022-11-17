@@ -25,8 +25,17 @@
 				<td>lastName</td>
 				<td><input type="text" name="lastName"></td>
 			</tr>
-			<button type="submit">로그인</button>
+			
+			<%
+				if(request.getParameter("msg") != null)
+				{
+			%>		
+					<span style="float:left;" style="color:red"> 경고! </span><span><%=request.getParameter("msg") %></span>
+			<%
+				}
+			%>
 		</table>
+		<button type="submit">로그인</button>
 	</form>
 </body>
 </html>
