@@ -9,20 +9,25 @@
 	//request 유효성 검증코드
 	request.setCharacterEncoding("utf-8");
 	String msg = null;
-	if(request.getParameter("empNo")==null
-		|| request.getParameter("firstName")==null || request.getParameter("fitstName").equals("")
-		|| request.getParameter("lastName")==null || request.getParameter("lastName").equals("") )
+	
+	
+	
+	if(request.getParameter("empNo") == null ||
+			request.getParameter("empNo").equals("") ||
+			request.getParameter("firstName") == null ||
+			request.getParameter("firstName").equals("") ||
+			request.getParameter("lastName") == null ||
+			request.getParameter("lastName").equals(""))
 	{
 		msg =URLEncoder.encode("항목들을 입력해주세요", "utf-8");
 		response.sendRedirect(request.getContextPath()+"/loginForm.jsp?msg="+msg);
 		return;
 	}
-		
-	
-	
 	int empNo = Integer.parseInt(request.getParameter("empNo"));
 	String firstName = request.getParameter("firstName");
 	String lastName = request.getParameter("lastName");
+	
+	
 	
 	Employee employee = new Employee();
 	employee.setEmpNo(empNo);
